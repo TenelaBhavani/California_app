@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>California HomeValue AI</title>
+
+    <link rel="stylesheet"
+        <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Background Glow -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+
+    <!-- Main Application -->
+    <main class="app-container">
+
+
+        <!-- ================= NAVBAR ================= -->
+
+        <nav class="navbar">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    <span>⌂</span>
+                </div>
+
+                <div>
+
+                    <h2>
+                        HomeValue<span>AI</span>
+                    </h2>
+
+                    <p>
+                        California Property Intelligence
+                    </p>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="badge">
+
+                    <span>✦</span>
+
+                    MACHINE LEARNING POWERED
+
+                </div>
+
+
+                <h1>
+
+                    Discover your home's
+                    <span>estimated value.</span>
+
+                </h1>
+
+
+                <p>
+
+                    Enter your property's details and let our
+                    machine learning model estimate its market
+                    value in seconds.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="dashboard">
+
+
+            <!-- ================= INPUT CARD ================= -->
+
+            <div class="card input-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            PROPERTY DATA
+                        </p>
+
+                        <h2>
+                            Tell us about the property
+                        </h2>
+
+                        <p class="card-description">
+
+                            Provide the following details for an
+                            accurate prediction.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="card-number">
+                        01
+                    </div>
+
+                </div>
+
+
+                <!-- Prediction Form -->
+
+                <form id="predictionForm">
+
+
+                    <div class="input-grid">
+
+
+                        <!-- Median Income -->
+
+                        <div class="input-group">
+
+                            <label for="MedInc">
+
+                                <span class="label-icon">
+                                    $
+                                </span>
+
+                                Median Income
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="MedInc"
+                                    name="MedInc"
+                                    step="0.01"
+                                    placeholder="e.g. 3.87"
+                                    required>
+
+                                <span class="input-unit">
+                                    $10k
+                                </span>
+
+                            </div>
+
+
+                            <small>
+                                Median household income
+                            </small>
+
+                        </div>
+
+
+                        <!-- House Age -->
+
+                        <div class="input-group">
+
+                            <label for="HouseAge">
+
+                                <span class="label-icon">
+                                    ⌂
+                                </span>
+
+                                House Age
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="HouseAge"
+                                    name="HouseAge"
+                                    step="0.1"
+                                    placeholder="e.g. 25"
+                                    required>
+
+                                <span class="input-unit">
+                                    years
+                                </span>
+
+                            </div>
+
+
+                            <small>
+                                Median age of houses
+                            </small>
+
+                        </div>
+
+
+                        <!-- Average Rooms -->
+
+                        <div class="input-group">
+
+                            <label for="AveRooms">
+
+                                <span class="label-icon">
+                                    ▦
+                                </span>
+
+                                Average Rooms
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="AveRooms"
+                                    name="AveRooms"
+                                    step="0.01"
+                                    placeholder="e.g. 5.4"
+                                    required>
+
+                                <span class="input-unit">
+                                    rooms
+                                </span>
+
+                            </div>
+
+
+                            <small>
+                                Average number of rooms
+                            </small>
+
+                        </div>
+
+
+                        <!-- Population -->
+
+                        <div class="input-group">
+
+                            <label for="Population">
+
+                                <span class="label-icon">
+                                    ♟
+                                </span>
+
+                                Population
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="Population"
+                                    name="Population"
+                                    step="1"
+                                    placeholder="e.g. 1500"
+                                    required>
+
+                                <span class="input-unit">
+                                    people
+                                </span>
+
+                            </div>
+
+
+                            <small>
+                                Population in the area
+                            </small>
+
+                        </div>
+
+
+                        <!-- Average Occupancy -->
+
+                        <div class="input-group">
+
+                            <label for="AveOccup">
+
+                                <span class="label-icon">
+                                    ◎
+                                </span>
+
+                                Average Occupancy
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="AveOccup"
+                                    name="AveOccup"
+                                    step="0.01"
+                                    placeholder="e.g. 3.2"
+                                    required>
+
+                                <span class="input-unit">
+                                    people
+                                </span>
+
+                            </div>
+
+
+                            <small>
+                                Average household occupancy
+                            </small>
+
+                        </div>
+
+
+                        <!-- Latitude -->
+
+                        <div class="input-group">
+
+                            <label for="Latitude">
+
+                                <span class="label-icon">
+                                    ⌖
+                                </span>
+
+                                Latitude
+
+                            </label>
+
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="number"
+                                    id="Latitude"
+                                    name="Latitude"
+                                    step="0.0001"
+                                    placeholder="e.g. 34.05"
+                                    required>
+
+                                <span class="input-unit">
+                                    °N
+                                </span>
+
+                            </div>
+
+
+                            <small>
+                                Geographic latitude
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Predict Button -->
+
+                    <button
+                        type="submit"
+                        class="predict-button"
+                        id="predictButton">
+
+                        <span class="button-text">
+                            Estimate Property Value
+                        </span>
+
+                        <span class="button-icon">
+                            →
+                        </span>
+
+                        <span class="loader"></span>
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- ================= RESULT CARD ================= -->
+
+            <div class="card result-card">
+
+
+                <div class="result-top">
+
+                    <div>
+
+                        <p class="section-label">
+                            AI ESTIMATE
+                        </p>
+
+                        <h2>
+                            Property valuation
+                        </h2>
+
+                    </div>
+
+
+                    <div class="ai-badge">
+                        AI
+                    </div>
+
+                </div>
+
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="result-content"
+                    id="emptyState">
+
+
+                    <div class="house-illustration">
+
+                        <div class="roof"></div>
+
+                        <div class="house-body">
+
+                            <div class="window"></div>
+
+                            <div class="door"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <h3>
+                        Your estimate will appear here
+                    </h3>
+
+
+                    <p>
+
+                        Complete the property details and click
+                        <strong>Estimate Property Value</strong>
+                        to generate your prediction.
+
+                    </p>
+
+                </div>
+
+
+
+                <!-- Prediction Result -->
+
+                <div
+                    class="prediction-result"
+                    id="predictionResult">
+
+
+                    <p class="result-label">
+                        ESTIMATED VALUE
+                    </p>
+
+
+                    <div
+                        class="price"
+                        id="price">
+
+                        $0
+
+                    </div>
+
+
+                    <div class="result-divider"></div>
+
+
+                    <div class="result-meta">
+
+
+                        <div>
+
+                            <span>
+                                Model
+                            </span>
+
+                            <strong>
+                                ML Regression
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Status
+                            </span>
+
+                            <strong class="verified">
+                                ● Verified
+                            </strong>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="reset-button"
+                        id="resetButton">
+
+                        Calculate Again
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- Error Message -->
+
+                <div
+                    class="error-message"
+                    id="errorMessage">
+
+
+                    <span>
+                        !
+                    </span>
+
+
+                    <p id="errorText">
+                        Something went wrong.
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer>
+
+            <p>
+                © 2026 HomeValueAI · California Housing Intelligence
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- JavaScript -->
+
+    <script
+        <script src="/static/js/script.js"></script>
+    </script>
+
+</body>
+
+</html>

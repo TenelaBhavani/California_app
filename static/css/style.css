@@ -1,0 +1,900 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #070b14;
+    --card-border: rgba(255, 255, 255, 0.08);
+    --primary: #7c5cff;
+    --primary-light: #9c83ff;
+    --text: #f7f8fc;
+    --muted: #9299aa;
+    --success: #48d597;
+    --input: rgba(255, 255, 255, 0.045);
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(124, 92, 255, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(0, 210, 255, 0.07),
+            transparent 30%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background-glow {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.glow-one {
+    background: #7c5cff;
+    top: -140px;
+    left: -100px;
+}
+
+.glow-two {
+    background: #00c2ff;
+    bottom: -140px;
+    right: -100px;
+}
+
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.app-container {
+    width: min(1180px, 91%);
+    height: 100vh;
+    min-height: 650px;
+
+    margin: auto;
+
+    padding: 18px 0 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    display: flex;
+    align-items: center;
+
+    height: 42px;
+
+    flex-shrink: 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.brand-icon {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c5cff,
+            #5f45e8
+        );
+
+    font-size: 17px;
+
+    box-shadow:
+        0 6px 20px rgba(124, 92, 255, 0.22);
+}
+
+.brand h2 {
+    font-size: 15px;
+    line-height: 1;
+    letter-spacing: -0.4px;
+}
+
+.brand h2 span {
+    color: var(--primary-light);
+}
+
+.brand p {
+    font-size: 7px;
+    color: var(--muted);
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    padding: 30px 0 20px;
+    flex-shrink: 0;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+
+    padding: 5px 9px;
+
+    border: 1px solid rgba(124, 92, 255, 0.2);
+
+    background: rgba(124, 92, 255, 0.08);
+
+    border-radius: 50px;
+
+    color: #a994ff;
+
+    font-size: 7px;
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 3.1vw, 42px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+
+    margin-top: 12px;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+    background:
+        linear-gradient(
+            90deg,
+            #9c83ff,
+            #64c9ff
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: var(--muted);
+
+    max-width: 500px;
+
+    line-height: 1.45;
+
+    margin-top: 9px;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    display: grid;
+
+    grid-template-columns: 1.35fr 0.75fr;
+
+    gap: 14px;
+
+    flex: 1;
+
+    min-height: 0;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.045),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    border: 1px solid var(--card-border);
+
+    border-radius: 18px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.22);
+
+    min-height: 0;
+}
+
+
+/* =========================================
+   INPUT CARD
+========================================= */
+
+.input-card {
+    padding: 18px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+}
+
+.section-label {
+    color: #8e79f7;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.1px;
+
+    margin-bottom: 4px;
+}
+
+.card-header h2,
+.result-top h2 {
+    font-size: 15px;
+
+    letter-spacing: -0.4px;
+}
+
+.card-description {
+    color: var(--muted);
+
+    font-size: 8px;
+
+    margin-top: 4px;
+}
+
+.card-number {
+    color: #42495a;
+
+    font-size: 20px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   INPUT GRID
+========================================= */
+
+.input-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 16px;
+
+    row-gap: 12px;
+}
+
+.input-group label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #d9dce5;
+
+    font-size: 9px;
+
+    font-weight: 600;
+
+    margin-bottom: 5px;
+}
+
+.label-icon {
+    width: 18px;
+    height: 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+
+    background: rgba(124, 92, 255, 0.1);
+
+    color: #9d89ff;
+
+    font-size: 8px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 38px;
+
+    padding: 0 50px 0 11px;
+
+    border-radius: 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    background: var(--input);
+
+    color: white;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    transition: 0.2s;
+}
+
+.input-wrapper input::placeholder {
+    color: #4e5565;
+}
+
+.input-wrapper input:focus {
+    border-color: rgba(124, 92, 255, 0.7);
+
+    background: rgba(124, 92, 255, 0.05);
+
+    box-shadow:
+        0 0 0 2px rgba(124, 92, 255, 0.08);
+}
+
+.input-unit {
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #656d7d;
+
+    font-size: 7px;
+}
+
+.input-group small {
+    display: block;
+
+    color: #5e6575;
+
+    font-size: 6.5px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================
+   PREDICT BUTTON
+========================================= */
+
+.predict-button {
+    width: 100%;
+
+    height: 40px;
+
+    margin-top: 15px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #7455f5,
+            #8d70ff
+        );
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 9px;
+
+    box-shadow:
+        0 10px 25px rgba(124, 92, 255, 0.22);
+
+    transition: 0.2s;
+}
+
+.predict-button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 14px 30px rgba(124, 92, 255, 0.3);
+}
+
+.predict-button:active {
+    transform: translateY(0);
+}
+
+.button-icon {
+    font-size: 13px;
+}
+
+.loader {
+    display: none;
+
+    width: 14px;
+    height: 14px;
+
+    border: 2px solid rgba(255, 255, 255, 0.3);
+
+    border-top-color: white;
+
+    border-radius: 50%;
+
+    animation: spin 0.7s linear infinite;
+}
+
+.loading .button-text,
+.loading .button-icon {
+    display: none;
+}
+
+.loading .loader {
+    display: block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   RESULT CARD
+========================================= */
+
+.result-card {
+    padding: 18px;
+
+    min-height: 0;
+
+    position: relative;
+}
+
+.result-top {
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.ai-badge {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    background: rgba(124, 92, 255, 0.12);
+
+    border: 1px solid rgba(124, 92, 255, 0.2);
+
+    color: #a38fff;
+
+    font-size: 7px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================
+   EMPTY RESULT
+========================================= */
+
+.result-content {
+    text-align: center;
+
+    padding: 35px 12px;
+}
+
+.house-illustration {
+    width: 80px;
+    height: 65px;
+
+    margin: 0 auto 20px;
+
+    position: relative;
+}
+
+.roof {
+    position: absolute;
+
+    left: 7px;
+    top: 0;
+
+    width: 65px;
+    height: 65px;
+
+    background: rgba(124, 92, 255, 0.09);
+
+    border: 2px solid rgba(124, 92, 255, 0.25);
+
+    transform:
+        rotate(45deg)
+        scale(0.7);
+
+    border-radius: 8px;
+}
+
+.house-body {
+    position: absolute;
+
+    left: 16px;
+    bottom: 3px;
+
+    width: 48px;
+    height: 40px;
+
+    background: #11192b;
+
+    border: 2px solid #353d52;
+
+    border-radius: 4px;
+}
+
+.window {
+    position: absolute;
+
+    width: 11px;
+    height: 11px;
+
+    background: rgba(124, 92, 255, 0.3);
+
+    top: 9px;
+    left: 8px;
+
+    border-radius: 2px;
+}
+
+.door {
+    position: absolute;
+
+    width: 12px;
+    height: 21px;
+
+    background: #252e42;
+
+    bottom: 0;
+    right: 8px;
+
+    border-radius: 2px 2px 0 0;
+}
+
+.result-content h3 {
+    font-size: 11px;
+
+    margin-bottom: 6px;
+}
+
+.result-content p {
+    color: #656d7c;
+
+    font-size: 8px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   PREDICTION RESULT
+========================================= */
+
+.prediction-result {
+    display: none;
+
+    text-align: center;
+
+    padding-top: 40px;
+}
+
+.prediction-result.show {
+    display: block;
+
+    animation: resultIn 0.4s ease;
+}
+
+@keyframes resultIn {
+    from {
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+.result-label {
+    color: #767e90;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+.price {
+    margin-top: 8px;
+
+    font-size: clamp(34px, 4vw, 48px);
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ffffff,
+            #9f8aff
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.result-divider {
+    height: 1px;
+
+    background: rgba(255, 255, 255, 0.07);
+
+    margin: 22px 0 17px;
+}
+
+.result-meta {
+    display: flex;
+
+    justify-content: space-around;
+}
+
+.result-meta div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.result-meta span {
+    color: #616a7b;
+
+    font-size: 7px;
+}
+
+.result-meta strong {
+    font-size: 8px;
+}
+
+.verified {
+    color: var(--success);
+}
+
+.reset-button {
+    margin-top: 22px;
+
+    padding: 8px 14px;
+
+    background: transparent;
+
+    color: #aaa;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 7px;
+
+    cursor: pointer;
+
+    font-size: 7px;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error-message {
+    display: none;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 12px;
+
+    padding: 8px;
+
+    background: rgba(255, 70, 70, 0.08);
+
+    border: 1px solid rgba(255, 70, 70, 0.15);
+
+    border-radius: 7px;
+
+    color: #ff8b8b;
+
+    font-size: 7px;
+}
+
+.error-message.show {
+    display: flex;
+}
+
+.error-message span {
+    width: 16px;
+    height: 16px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(255, 70, 70, 0.15);
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+
+    height: 22px;
+
+    padding-top: 8px;
+
+    color: #444b5a;
+
+    font-size: 6px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .app-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card {
+        min-height: 350px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .app-container {
+        width: 92%;
+        height: auto;
+    }
+
+    .hero {
+        padding: 25px 0 18px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .input-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-card,
+    .result-card {
+        padding: 15px;
+    }
+
+    .dashboard {
+        gap: 12px;
+    }
+
+    .result-card {
+        min-height: 330px;
+    }
+}
